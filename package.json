@@ -1,5 +1,5 @@
 {
-  "name": "indie-stack-template",
+  "name": "lilith-stack-template",
   "private": true,
   "description": "",
   "license": "",
@@ -12,10 +12,7 @@
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "cross-env NODE_ENV=development binode --require ./mocks -- @remix-run/dev:remix dev",
-    "format": "prettier --write .",
     "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "setup": "prisma migrate dev && prisma db seed",
     "start": "remix-serve build",
     "start:mocks": "binode --require ./mocks -- @remix-run/serve:remix-serve build",
     "test": "vitest",
@@ -25,14 +22,7 @@
     "typecheck": "tsc -b && tsc -b cypress",
     "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run"
   },
-  "prettier": {},
-  "eslintIgnore": [
-    "/node_modules",
-    "/build",
-    "/public/build"
-  ],
   "dependencies": {
-    "@prisma/client": "^3.11.1",
     "@remix-run/node": "*",
     "@remix-run/react": "*",
     "@remix-run/serve": "*",
@@ -40,6 +30,7 @@
     "bcryptjs": "^2.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "remix": "^1.4.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
@@ -52,7 +43,6 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.0.4",
     "@types/bcryptjs": "^2.4.2",
-    "@types/eslint": "^8.4.1",
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
@@ -62,15 +52,10 @@
     "c8": "^7.11.0",
     "cross-env": "^7.0.3",
     "cypress": "^9.5.3",
-    "eslint": "^8.12.0",
-    "eslint-config-prettier": "^8.5.0",
     "happy-dom": "^2.55.0",
     "msw": "^0.39.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.12",
-    "prettier": "2.6.1",
-    "prettier-plugin-tailwindcss": "^0.1.8",
-    "prisma": "^3.11.1",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.23",
     "ts-node": "^10.7.0",
